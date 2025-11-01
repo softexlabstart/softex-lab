@@ -4,14 +4,14 @@
   "description": "Landing page mejorada para Softex Labs con funcionalidades avanzadas",
   "main": "app.js",
   "scripts": {
-    "dev": "npx http-server public -p 3000 -o",
-    "build": "rm -rf public && mkdir -p public && cp index.html styles.css app.js sw.js site.webmanifest public/ && echo 'Build completed successfully'",
-    "prebuild": "echo 'Starting build process...'",
-    "postbuild": "echo 'Build process finished. Files in public:' && ls -la public/",
+    "dev": "astro dev",
+    "build:css": "npx tailwindcss -i src/styles/global.css -o public/build/tailwind.css --minify",
+    "build": "npm run build:css && astro build",
+    "preview": "astro preview",
     "test": "echo 'No tests specified'",
     "lint": "echo 'No linting configured'",
     "deploy": "vercel --prod",
-    "clean": "rm -rf public"
+    "clean": "rm -rf dist public/build"
   },
   "keywords": [
     "landing-page",
