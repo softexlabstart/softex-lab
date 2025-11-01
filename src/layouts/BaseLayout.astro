@@ -1,0 +1,47 @@
+---
+const {title = 'SoftexLabs', description = 'Soluciones tecnológicas para tu negocio', image = '/og-image.png', url = 'https://softexlabs.shop'} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={url} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Hanken Grotesk -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="/favicon.svg" />
+  <!-- Compiled Tailwind + custom styles (generated) -->
+  <link rel="stylesheet" href="/build/tailwind.css">
+  </head>
+  <body class="bg-gradient-to-b from-white/60 via-slate-50 to-white min-h-screen text-slate-800 antialiased font-sans">
+    <slot name="header" />
+
+    <main id="content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+
+    <script>
+      // Small accessibility: focus outline on keyboard navigation
+      (function(){
+        function handleFirstTab(e){
+          if(e.key === 'Tab'){
+            document.documentElement.classList.add('user-is-tabbing');
+            window.removeEventListener('keydown', handleFirstTab);
+          }
+        }
+        window.addEventListener('keydown', handleFirstTab);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --glass-bg: rgba(255,255,255,0.6);
+}
+html,body{
+  height:100%;
+}
+body{
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* small glassmorphism card */
+.glass-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(248,250,252,0.75));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(15,23,42,0.04);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.06), 0 2px 6px rgba(2,6,23,0.04);
+}
+
+/* Accessibility focus */
+.user-is-tabbing :focus{outline:3px solid rgba(37,99,235,0.25);outline-offset:2px}
+
+/* small helper for hero gradient text */
+.gradient-text{background:linear-gradient(90deg,#2563eb,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Buttons used throughout the site */
+.btn-primary{
+  @apply inline-flex items-center px-8 py-3 rounded-full bg-primary text-white shadow-md hover:shadow-lg transition-shadow duration-200;
+}
+
+.btn-outline{
+  @apply inline-flex items-center px-8 py-3 rounded-full border border-slate-200 text-slate-800 bg-white/60 hover:bg-white/80 transition-colors duration-200;
+}
+
+/* simple fade-in helper */
+.fade-in{animation:fadeIn .6s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* Make sure images are responsive */
+img{max-width:100%;height:auto;display:block}

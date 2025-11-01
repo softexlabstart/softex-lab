@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout title="Sobre SoftexLabs - Nosotros" description="Sobre SoftexLabs: Misión, visión e historia breve"> 
+  <Header slot="header" />
+
+  <section class="py-12">
+    <h1 class="text-3xl font-bold">Sobre SoftexLabs</h1>
+    <p class="mt-4 text-slate-600 max-w-3xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (Texto editable)</p>
+  </section>
+
+  <section class="py-6 grid md:grid-cols-2 gap-6">
+    <div class="glass-card p-6 rounded-xl">
+      <h3 class="font-semibold">Misión</h3>
+      <p class="mt-2 text-slate-600">Democratizar la tecnología empresarial para negocios de todos los tamaños.</p>
+    </div>
+
+    <div class="glass-card p-6 rounded-xl">
+      <h3 class="font-semibold">Visión</h3>
+      <p class="mt-2 text-slate-600">Ser el proveedor líder de soluciones SaaS adaptables en Latinoamérica.</p>
+    </div>
+  </section>
+
+  <section class="py-6">
+    <h3 class="text-xl font-semibold">Por qué elegirnos</h3>
+    <div class="mt-4 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="glass-card p-4 rounded-lg">Soluciones personalizadas</div>
+      <div class="glass-card p-4 rounded-lg">Soporte dedicado</div>
+      <div class="glass-card p-4 rounded-lg">Seguridad empresarial</div>
+      <div class="glass-card p-4 rounded-lg">Escalabilidad garantizada</div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

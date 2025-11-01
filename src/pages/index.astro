@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout title="SoftexLabs - Soluciones Tecnológicas" description="Proveer soluciones tecnológicas adaptables para todo tipo de negocios"> 
+  <Header slot="header" />
+
+  <section class="py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
+      <div>
+    <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight fade-in">SoftexLabs - <span class="gradient-text">Soluciones Tecnológicas</span> para tu Negocio</h1>
+        <p class="mt-6 text-slate-600 max-w-xl">Proveemos soluciones tecnológicas adaptables para todo tipo de negocios. Transformamos procesos, mejoramos la experiencia de tus clientes y ayudamos a escalar operaciones con herramientas intuitivas.</p>
+
+        <div class="mt-8 flex gap-3">
+          <a class="btn-primary" href="/servicios">Conoce nuestras soluciones</a>
+          <a class="btn-outline" href="/contacto">Solicitar Demo</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="glass-card p-8 rounded-3xl shadow-2xl">
+          <div class="bg-slate-100 rounded-lg p-6 border border-white/60">
+            <img src="https://placehold.co/800x600?text=Mockup+Ordo" alt="Mockup Ordo placeholder" width="800" height="600" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="glass-card p-6 rounded-xl">
+        <h3 class="font-semibold">¿Quiénes somos?</h3>
+        <p class="mt-2 text-sm text-slate-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-xl">
+        <h3 class="font-semibold">Nuestros Productos</h3>
+        <p class="mt-2 text-sm text-slate-600">Ordo — Sistema de gestión de citas multi-tenant. Multi-sede, calendario intuitivo y reportes en tiempo real.</p>
+  <a href="/ordo" class="mt-3 inline-block text-blue-600">Ver Ordo →</a>
+      </div>
+
+      <div class="glass-card p-6 rounded-xl">
+        <h3 class="font-semibold">Contacto</h3>
+        <p class="mt-2 text-sm text-slate-600">Email: info@softexlab.com<br/>WhatsApp: +57 319 363 6323</p>
+      </div>
+    </div>
+  </section>
+
+<html lang="en">
+  <Footer slot="footer" />
+</BaseLayout>

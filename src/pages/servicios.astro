@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout title="Servicios - SoftexLabs" description="Conoce nuestras soluciones: Ordo, y más"> 
+  <Header slot="header" />
+
+  <section class="py-12">
+    <h1 class="text-3xl font-bold">Nuestras Soluciones</h1>
+    <p class="mt-4 text-slate-600">Presentamos productos pensados para facilitar la operación de negocios con citas y agendas.</p>
+  </section>
+
+  <section class="py-6 grid md:grid-cols-2 gap-6">
+    <div class="glass-card p-6 rounded-xl">
+      <h3 class="text-xl font-semibold">Ordo - Sistema de Gestión de Citas</h3>
+      <p class="mt-2 text-slate-600">Administra citas, clientes y servicios desde una plataforma adaptable a cualquier negocio.</p>
+      <img src="https://placehold.co/640x360?text=Ordo+Preview" alt="Ordo preview" class="mt-4 rounded-lg shadow-sm" loading="lazy">
+  <a href="/ordo" class="mt-4 inline-block px-4 py-2 rounded bg-blue-600 text-white">Conocer más</a>
+    </div>
+
+    <div class="glass-card p-6 rounded-xl">
+      <h3 class="text-xl font-semibold">Próximamente</h3>
+      <p class="mt-2 text-slate-600">Estamos preparando más soluciones. Mantente atento.</p>
+      <div class="mt-4 text-sm text-slate-500">[Placeholder cards for future products]</div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

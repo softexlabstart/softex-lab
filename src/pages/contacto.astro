@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout title="Contacto - SoftexLabs" description="Contáctanos para solicitar una demo o más información"> 
+  <Header slot="header" />
+
+  <section class="py-12 max-w-3xl mx-auto">
+    <h1 class="text-2xl font-bold">Contacto</h1>
+    <p class="mt-2 text-slate-600">Rellena el formulario y te contactaremos para coordinar una demo.</p>
+
+    <form id="contact-form" class="mt-6 grid grid-cols-1 gap-4" on:submit preventdefault>
+      <label class="flex flex-col">
+        <span class="text-sm">Nombre *</span>
+        <input id="name" required class="mt-1 p-3 rounded border" />
+      </label>
+
+      <label class="flex flex-col">
+        <span class="text-sm">Email *</span>
+        <input id="email" type="email" required class="mt-1 p-3 rounded border" />
+      </label>
+
+      <label class="flex flex-col">
+        <span class="text-sm">Teléfono / WhatsApp *</span>
+        <input id="phone" required class="mt-1 p-3 rounded border" />
+      </label>
+
+      <label class="flex flex-col">
+        <span class="text-sm">Tipo de negocio *</span>
+        <select id="businessType" class="mt-1 p-3 rounded border" required>
+          <option>Selecciona...</option>
+          <option>Peluquería</option>
+          <option>SPA</option>
+          <option>Clínica</option>
+          <option>Banco</option>
+          <option>Otro</option>
+        </select>
+      </label>
+
+      <label class="flex flex-col">
+        <span class="text-sm">Número de sedes *</span>
+        <select id="locations" class="mt-1 p-3 rounded border" required>
+          <option>Selecciona...</option>
+          <option>1</option>
+          <option>2-5</option>
+          <option>6-10</option>
+          <option>10+</option>
+        </select>
+      </label>
+
+      <label class="flex flex-col">
+        <span class="text-sm">Mensaje (opcional)</span>
+        <textarea id="message" rows="4" class="mt-1 p-3 rounded border"></textarea>
+      </label>
+
+      <div class="flex gap-3">
+  <button id="sendBtn" type="submit" class="px-5 py-3 rounded bg-blue-600 text-white">Enviar Solicitud</button>
+        <a id="whatsBtn" href="#" class="px-5 py-3 rounded border">Escribir por WhatsApp</a>
+      </div>
+    </form>
+
+    <script>
+      const form = document.getElementById('contact-form');
+      const whatsBtn = document.getElementById('whatsBtn');
+      function buildMessage(){
+        const name = document.getElementById('name').value || '';
+        const email = document.getElementById('email').value || '';
+        const phone = document.getElementById('phone').value || '';
+        const business = document.getElementById('businessType').value || '';
+        const locations = document.getElementById('locations').value || '';
+        const message = document.getElementById('message').value || '';
+        let text = `Hola, me gustaría solicitar una demo de Ordo. Nombre: ${name} Email: ${email} Teléfono: ${phone} Tipo de negocio: ${business} Número de sedes: ${locations} Mensaje: ${message}`;
+        return encodeURIComponent(text);
+      }
+
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const text = buildMessage();
+        const url = `https://wa.me/573193636323?text=${text}`;
+        window.open(url, '_blank');
+      });
+
+      whatsBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const text = buildMessage();
+        const url = `https://wa.me/573193636323?text=${text}`;
+        window.open(url, '_blank');
+      });
+    </script>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

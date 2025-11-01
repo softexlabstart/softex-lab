@@ -1,0 +1,18 @@
+{
+  // Ignore "unknown at rule" linting errors for Tailwind directives
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore",
+
+  // Let Tailwind IntelliSense handle class completions in .astro files
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
+
+  // Optional: recommend installing Tailwind IntelliSense extension
+  // (Extension ID: bradlc.vscode-tailwindcss) — this improves class
+  // suggestions and removes false positives.
+  "extensions.recommendations": [
+    "bradlc.vscode-tailwindcss"
+  ]
+}
