@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<BaseLayout title="Ordo - Gestión de Citas Inteligente" description="Ordo: La forma más simple de administrar tu agenda, clientes y servicios">
+<BaseLayout title="Ordo - Gestión de Citas Inteligente" description="Ordo: La forma más simple de administrar tu agenda, clientes y servicios" image="/og/ordo-og.svg" url="https://softexlabs.shop/ordo">
   <Header slot="header" />
 
   <!-- Hero -->
@@ -20,8 +20,8 @@ import Footer from '../components/Footer.astro';
 
     <div>
       <div class="glass-card p-8 rounded-3xl shadow-2xl">
-        <div class="bg-slate-100 rounded-lg p-6 border border-white/60">
-          <img src="https://placehold.co/900x510?text=Video+o+GIF+Demo" alt="Video demo placeholder" loading="lazy">
+        <div class="bg-slate-100 rounded-lg p-6 border border-white/60 flex items-center justify-center">
+          <img src="/images/login.png" alt="Ordo - pantalla de login" loading="lazy" class="rounded-lg object-cover w-full max-h-[48vh] sm:max-h-[420px] shadow-lg" />
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@ import Footer from '../components/Footer.astro';
         <div>
           <h4 class="font-semibold">Calendario Intuitivo</h4>
           <p class="text-sm text-slate-600">Visualiza todas tus citas en un calendario fácil de usar.</p>
-          <img src="https://placehold.co/600x360?text=Screenshot+Calendario" alt="screenshot" class="mt-3 rounded" loading="lazy">
+          <img src="/images/calendario.png" alt="Captura Calendario - Ordo" class="mt-3 rounded w-full h-40 sm:h-52 object-cover shadow" loading="lazy">
         </div>
       </div>
 
@@ -66,7 +66,7 @@ import Footer from '../components/Footer.astro';
         <div>
           <h4 class="font-semibold">Gestión de Clientes</h4>
           <p class="text-sm text-slate-600">Historial completo de cada cliente en un solo lugar.</p>
-          <img src="https://placehold.co/600x360?text=Screenshot+Clientes" alt="screenshot" class="mt-3 rounded" loading="lazy">
+          <img src="/images/Clientes.png" alt="Captura Gestión de Clientes - Ordo" class="mt-3 rounded w-full h-40 sm:h-52 object-cover shadow" loading="lazy">
         </div>
       </div>
 
@@ -75,7 +75,7 @@ import Footer from '../components/Footer.astro';
         <div>
           <h4 class="font-semibold">Multi-sede</h4>
           <p class="text-sm text-slate-600">Administra múltiples sucursales desde una sola cuenta.</p>
-          <img src="https://placehold.co/600x360?text=Screenshot+Multi-sede" alt="screenshot" class="mt-3 rounded" loading="lazy">
+          <img src="/images/multisede.png" alt="Captura Multi-sede - Ordo" class="mt-3 rounded w-full h-40 sm:h-52 object-cover shadow" loading="lazy">
         </div>
       </div>
 
@@ -84,7 +84,7 @@ import Footer from '../components/Footer.astro';
         <div>
           <h4 class="font-semibold">Reportes en Tiempo Real</h4>
           <p class="text-sm text-slate-600">Toma decisiones basadas en datos actualizados.</p>
-          <img src="https://placehold.co/600x360?text=Screenshot+Reportes" alt="screenshot" class="mt-3 rounded" loading="lazy">
+          <img src="/images/Reportes.png" alt="Captura Reportes - Ordo" class="mt-3 rounded w-full h-40 sm:h-52 object-cover shadow" loading="lazy">
         </div>
       </div>
     </div>
@@ -118,19 +118,6 @@ import Footer from '../components/Footer.astro';
         <h4 class="font-semibold">Paso 3</h4>
         <p class="text-slate-600">Comienza a recibir y gestionar citas.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Galería de Capturas -->
-  <section class="py-10">
-    <h3 class="text-xl font-semibold">Galería de Capturas</h3>
-    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <img src="https://placehold.co/600x400?text=Dashboard+principal" alt="Dashboard principal" loading="lazy">
-      <img src="https://placehold.co/600x400?text=Vista+Calendario" alt="Vista calendario" loading="lazy">
-      <img src="https://placehold.co/600x400?text=Gestión+Clientes" alt="Gestión clientes" loading="lazy">
-      <img src="https://placehold.co/600x400?text=Configuración+Servicios" alt="Configuración" loading="lazy">
-      <img src="https://placehold.co/600x400?text=Reportes+y+Estadísticas" alt="Reportes" loading="lazy">
-      <img src="https://placehold.co/600x400?text=Panel+Administración" alt="Panel admin" loading="lazy">
     </div>
   </section>
 

@@ -27,10 +27,10 @@ Esta es la landing page oficial de **Softex Labs**, una empresa de desarrollo de
 - **JavaScript** con **Alpine.js** para la interactividad.
 - **Vercel Analytics** para el seguimiento de visitas.
 
-### Backend (Serverless Function)
-- **Go (Golang)**
-- **Servidor HTTP nativo de Go**
-- **SMTP** para el envío de correos.
+### Backend (Astro API Endpoint)
+- **TypeScript**
+- **Astro API Routes**
+- **Nodemailer** para el envío de correos
 
 ## 🛠️ Cómo Empezar
 
@@ -39,8 +39,19 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
 ### Prerrequisitos
 
 - **Node.js** (versión 18.0.0 o superior)
-- **Go** (versión 1.19 o superior)
 - Un servidor SMTP (como Gmail, SendGrid, etc.) para el envío de correos.
+
+### Configuración de Gmail SMTP
+
+Para usar Gmail como servidor SMTP, necesitas:
+
+1. Tener activada la verificación en dos pasos en tu cuenta de Google
+2. Generar una contraseña de aplicación:
+   - Ve a tu cuenta de Google
+   - Seguridad > Verificación en dos pasos
+   - Al final de la página, haz clic en "Contraseñas de aplicación"
+   - Selecciona "Otra" como aplicación y dale un nombre (ej. "SoftexLabs Landing")
+   - Copia la contraseña generada y úsala como `SMTP_PASS` en tu archivo `.env`
 
 ### Instalación
 
@@ -99,3 +110,23 @@ Este proyecto está configurado para ser desplegado en **Vercel**.
 ## 📄 Licencia
 
 Este proyecto está bajo la [Licencia MIT](LICENSE).
+
+## 🔧 Quick build (rápido)
+
+Si solo quieres compilar la página estática de forma rápida (incluyendo la generación del CSS de Tailwind), ejecuta:
+
+```bash
+# Instala dependencias (si no lo has hecho)
+npm install
+
+# Genera el CSS compilado por Tailwind (genera public/build/tailwind.css)
+npm run build:css
+
+# Construye la versión estática completa
+npm run build
+
+# Para desarrollo con recarga
+npm run dev
+```
+
+Nota: `npm run build` ya ejecuta `build:css` antes de `astro build` según la configuración de `package.json`.

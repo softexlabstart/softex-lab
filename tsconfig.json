@@ -1,5 +1,13 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    // Limit the automatic global type libraries to only Node here to avoid
+    // VS Code/tsserver trying to resolve many transitive libs from other
+    // projects. We also skip lib checking for faster editor responsiveness.
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types"],
+    "skipLibCheck": true
+  },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]
 }

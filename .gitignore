@@ -2,6 +2,7 @@
 .vercel
 
 # Local env files
+.env
 .env*.local
 
 # Dependencies

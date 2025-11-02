@@ -55,14 +55,29 @@ import Footer from '../components/Footer.astro';
       </label>
 
       <div class="flex gap-3">
-  <button id="sendBtn" type="submit" class="px-5 py-3 rounded bg-blue-600 text-white">Enviar Solicitud</button>
-        <a id="whatsBtn" href="#" class="px-5 py-3 rounded border">Escribir por WhatsApp</a>
+        <button id="sendBtn" type="submit" class="px-5 py-3 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+          <span id="sendBtnText">Enviar Solicitud</span>
+          <span id="sendBtnLoading" class="hidden">Enviando...</span>
+        </button>
+        <a id="whatsBtn" href="#" class="px-5 py-3 rounded border hover:bg-slate-50 transition-colors">Escribir por WhatsApp</a>
+      </div>
+      <div id="formSuccess" class="hidden mt-4 p-4 rounded bg-green-50 text-green-700 border border-green-200">
+        Solicitud enviada correctamente. Te contactaremos pronto.
+      </div>
+      <div id="formError" class="hidden mt-4 p-4 rounded bg-red-50 text-red-700 border border-red-200">
+        Hubo un error al enviar la solicitud. Por favor intenta nuevamente o usa WhatsApp.
       </div>
     </form>
 
     <script>
       const form = document.getElementById('contact-form');
       const whatsBtn = document.getElementById('whatsBtn');
+      const sendBtn = document.getElementById('sendBtn');
+      const sendBtnText = document.getElementById('sendBtnText');
+      const sendBtnLoading = document.getElementById('sendBtnLoading');
+      const formSuccess = document.getElementById('formSuccess');
+      const formError = document.getElementById('formError');
+
       function buildMessage(){
         const name = document.getElementById('name').value || '';
         const email = document.getElementById('email').value || '';
@@ -70,21 +85,57 @@ import Footer from '../components/Footer.astro';
         const business = document.getElementById('businessType').value || '';
         const locations = document.getElementById('locations').value || '';
         const message = document.getElementById('message').value || '';
-        let text = `Hola, me gustaría solicitar una demo de Ordo. Nombre: ${name} Email: ${email} Teléfono: ${phone} Tipo de negocio: ${business} Número de sedes: ${locations} Mensaje: ${message}`;
-        return encodeURIComponent(text);
+        return {
+          name,
+          email,
+          phone,
+          businessType: business,
+          locations,
+          message
+        };
       }
 
-      form.addEventListener('submit', (e)=>{
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const text = buildMessage();
-        const url = `https://wa.me/573193636323?text=${text}`;
-        window.open(url, '_blank');
+        
+        // Reset states
+        formSuccess.classList.add('hidden');
+        formError.classList.add('hidden');
+        sendBtn.disabled = true;
+        sendBtnText.classList.add('hidden');
+        sendBtnLoading.classList.remove('hidden');
+        
+        try {
+          const formData = buildMessage();
+          const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+
+          if (response.ok) {
+            formSuccess.classList.remove('hidden');
+            form.reset();
+          } else {
+            formError.classList.remove('hidden');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          formError.classList.remove('hidden');
+        } finally {
+          sendBtn.disabled = false;
+          sendBtnText.classList.remove('hidden');
+          sendBtnLoading.classList.add('hidden');
+        }
       });
 
       whatsBtn.addEventListener('click', (e)=>{
         e.preventDefault();
-        const text = buildMessage();
-        const url = `https://wa.me/573193636323?text=${text}`;
+        const data = buildMessage();
+        const text = `Hola, me gustaría solicitar una demo de Ordo. Nombre: ${data.name} Email: ${data.email} Teléfono: ${data.phone} Tipo de negocio: ${data.businessType} Número de sedes: ${data.locations} Mensaje: ${data.message}`;
+        const url = `https://wa.me/573193636323?text=${encodeURIComponent(text)}`;
         window.open(url, '_blank');
       });
     </script>
