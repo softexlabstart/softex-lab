@@ -1,0 +1,50 @@
+/* Estilos para mejorar la accesibilidad */
+
+/* Outline para elementos focusables */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Skip link para usuarios de teclado */
+.skip-to-main {
+  position: absolute;
+  top: -9999px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* Mejorar contraste y legibilidad */
+.text-slate-600 {
+  color: #475569; /* Asegurar ratio de contraste mínimo de 4.5:1 */
+}
+
+/* Reducir movimiento si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

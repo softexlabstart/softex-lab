@@ -7,6 +7,10 @@ const {title = 'SoftexLabs', description = 'Soluciones tecnológicas para tu neg
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <!-- Mejoras de accesibilidad -->
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="color-scheme" content="light" />
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -23,9 +27,10 @@ const {title = 'SoftexLabs', description = 'Soluciones tecnológicas para tu neg
   <link rel="stylesheet" href="/build/tailwind.css">
   </head>
   <body class="bg-gradient-to-b from-white/60 via-slate-50 to-white min-h-screen text-slate-800 antialiased font-sans">
+    <a href="#content" class="skip-to-main">Saltar al contenido principal</a>
     <slot name="header" />
 
-    <main id="content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main id="content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" tabindex="-1">
       <slot />
     </main>
 

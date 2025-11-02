@@ -6,15 +6,15 @@ import Footer from '../components/Footer.astro';
 <BaseLayout title="SoftexLabs - Soluciones Tecnológicas" description="Proveer soluciones tecnológicas adaptables para todo tipo de negocios"> 
   <Header slot="header" />
 
-  <section class="py-12">
+  <section class="py-12" aria-labelledby="hero-heading">
     <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
       <div>
-    <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight fade-in">SoftexLabs - <span class="gradient-text">Soluciones Tecnológicas</span> para tu Negocio</h1>
+        <h1 id="hero-heading" class="text-5xl sm:text-6xl font-extrabold leading-tight fade-in">SoftexLabs - <span class="gradient-text">Soluciones Tecnológicas</span> para tu Negocio</h1>
         <p class="mt-6 text-slate-600 max-w-xl">Proveemos soluciones tecnológicas adaptables para todo tipo de negocios. Transformamos procesos, mejoramos la experiencia de tus clientes y ayudamos a escalar operaciones con herramientas intuitivas.</p>
 
         <div class="mt-8 flex gap-3">
-          <a class="btn-primary" href="/servicios">Conoce nuestras soluciones</a>
-          <a class="btn-outline" href="/contacto">Solicitar Demo</a>
+          <a class="btn-primary" href="/servicios" role="button">Conoce nuestras soluciones</a>
+          <a class="btn-outline" href="/contacto" role="button">Solicitar Demo</a>
         </div>
       </div>
 
@@ -28,23 +28,31 @@ import Footer from '../components/Footer.astro';
     </div>
   </section>
 
-  <section class="py-12">
-
+  <section class="py-12" aria-label="Características principales">
     <div class="grid md:grid-cols-3 gap-6">
       <div class="glass-card p-6 rounded-xl">
-        <h3 class="font-semibold">¿Quiénes somos?</h3>
+        <h2 class="font-semibold text-xl">¿Quiénes somos?</h2>
         <p class="mt-2 text-sm text-slate-600">Somos una compañia a nivel nacional que busca mejorar la experiencia para las compañias aliadas al momento de realizar no solo un seguimiento a nuestro clientes sino tambien al momento de agendar sus citas de manera totalmente digital</p>
       </div>
 
       <div class="glass-card p-6 rounded-xl">
-        <h3 class="font-semibold">Nuestros Productos</h3>
+        <h2 class="font-semibold text-xl">Nuestros Productos</h2>
         <p class="mt-2 text-sm text-slate-600">Ordo — Sistema de gestión de citas multi-tenant. Multi-sede, calendario intuitivo y reportes en tiempo real.</p>
-  <a href="/ordo" class="mt-3 inline-block text-blue-600">Ver Ordo →</a>
+        <a href="/ordo" class="mt-3 inline-flex items-center text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded">
+          Ver Ordo <span class="sr-only"> - Sistema de gestión de citas</span>
+          <span aria-hidden="true" class="ml-1">→</span>
+        </a>
       </div>
 
       <div class="glass-card p-6 rounded-xl">
-        <h3 class="font-semibold">Contacto</h3>
-        <p class="mt-2 text-sm text-slate-600">Email: info@softexlab.com<br/>WhatsApp: +57 319 363 6323</p>
+        <h2 class="font-semibold text-xl">Contacto</h2>
+        <p class="mt-2 text-sm text-slate-600">
+          <a href="mailto:info@softexlab.com" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded">info@softexlab.com</a><br/>
+          <a href="https://wa.me/573193636323" target="_blank" rel="noopener" class="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded">
+            WhatsApp: +57 319 363 6323
+            <span class="sr-only">(se abre en una nueva ventana)</span>
+          </a>
+        </p>
       </div>
     </div>
   </section>

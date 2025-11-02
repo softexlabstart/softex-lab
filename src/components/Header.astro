@@ -5,12 +5,12 @@ import { Astro } from 'astro';
   <div class="flex items-center justify-between max-w-7xl mx-auto">
     <a class="text-xl font-bold text-slate-900" href="/">SoftexLabs</a>
 
-    <nav class="hidden md:flex items-center gap-6 text-slate-700">
-      <a href="/" class="hover:text-slate-900">Inicio</a>
-      <a href="/nosotros" class="hover:text-slate-900">Nosotros</a>
-      <a href="/servicios" class="hover:text-slate-900">Servicios</a>
-      <a href="/contacto" class="hover:text-slate-900">Contacto</a>
-  <a href="/contacto" class="ml-4 btn-primary">Solicitar Demo</a>
+    <nav class="hidden md:flex items-center gap-6 text-slate-700" role="navigation" aria-label="Navegación principal">
+      <a href="/" class="hover:text-slate-900" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>Inicio</a>
+      <a href="/nosotros" class="hover:text-slate-900" aria-current={Astro.url.pathname === '/nosotros' ? 'page' : undefined}>Nosotros</a>
+      <a href="/servicios" class="hover:text-slate-900" aria-current={Astro.url.pathname === '/servicios' ? 'page' : undefined}>Servicios</a>
+      <a href="/contacto" class="hover:text-slate-900" aria-current={Astro.url.pathname === '/contacto' ? 'page' : undefined}>Contacto</a>
+      <a href="/contacto" class="ml-4 btn-primary">Solicitar Demo</a>
     </nav>
 
     <div class="md:hidden">
@@ -20,15 +20,15 @@ import { Astro } from 'astro';
     </div>
   </div>
 
-    <div id="mobile-menu" class="hidden md:hidden mt-4">
-    <div class="flex flex-col gap-3 px-4">
-      <a href="/">Inicio</a>
-      <a href="/nosotros">Nosotros</a>
-      <a href="/servicios">Servicios</a>
-      <a href="/contacto">Contacto</a>
-  <a href="/contacto" class="mt-2 btn-primary">Solicitar Demo</a>
+    <div id="mobile-menu" class="hidden md:hidden mt-4" role="navigation" aria-label="Menú móvil">
+      <div class="flex flex-col gap-3 px-4">
+        <a href="/" class="p-2" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>Inicio</a>
+        <a href="/nosotros" class="p-2" aria-current={Astro.url.pathname === '/nosotros' ? 'page' : undefined}>Nosotros</a>
+        <a href="/servicios" class="p-2" aria-current={Astro.url.pathname === '/servicios' ? 'page' : undefined}>Servicios</a>
+        <a href="/contacto" class="p-2" aria-current={Astro.url.pathname === '/contacto' ? 'page' : undefined}>Contacto</a>
+        <a href="/contacto" class="mt-2 btn-primary">Solicitar Demo</a>
+      </div>
     </div>
-  </div>
 
   <script>
     const btn = document.getElementById('menu-toggle');
