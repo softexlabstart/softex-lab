@@ -3,143 +3,381 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<BaseLayout title="Contacto - SoftexLabs" description="Contáctanos para solicitar una demo o más información"> 
+<BaseLayout title="Contacto - SoftexLabs" description="Contáctanos para solicitar una demo o más información">
   <Header slot="header" />
 
-  <section class="py-12 max-w-3xl mx-auto">
-    <h1 class="text-2xl font-bold">Contacto</h1>
-    <p class="mt-2 text-slate-600">Rellena el formulario y te contactaremos para coordinar una demo.</p>
+  <!-- Hero Section -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
 
-    <form id="contact-form" class="mt-6 grid grid-cols-1 gap-4" on:submit preventdefault>
-      <label class="flex flex-col">
-        <span class="text-sm">Nombre *</span>
-        <input id="name" required class="mt-1 p-3 rounded border" />
-      </label>
-
-      <label class="flex flex-col">
-        <span class="text-sm">Email *</span>
-        <input id="email" type="email" required class="mt-1 p-3 rounded border" />
-      </label>
-
-      <label class="flex flex-col">
-        <span class="text-sm">Teléfono / WhatsApp *</span>
-        <input id="phone" required class="mt-1 p-3 rounded border" />
-      </label>
-
-      <label class="flex flex-col">
-        <span class="text-sm">Tipo de negocio *</span>
-        <select id="businessType" class="mt-1 p-3 rounded border" required>
-          <option>Selecciona...</option>
-          <option>Peluquería</option>
-          <option>SPA</option>
-          <option>Clínica</option>
-          <option>Banco</option>
-          <option>Otro</option>
-        </select>
-      </label>
-
-      <label class="flex flex-col">
-        <span class="text-sm">Número de sedes *</span>
-        <select id="locations" class="mt-1 p-3 rounded border" required>
-          <option>Selecciona...</option>
-          <option>1</option>
-          <option>2-5</option>
-          <option>6-10</option>
-          <option>10+</option>
-        </select>
-      </label>
-
-      <label class="flex flex-col">
-        <span class="text-sm">Mensaje (opcional)</span>
-        <textarea id="message" rows="4" class="mt-1 p-3 rounded border"></textarea>
-      </label>
-
-      <div class="flex gap-3">
-        <button id="sendBtn" type="submit" class="px-5 py-3 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors">
-          <span id="sendBtnText">Enviar Solicitud</span>
-          <span id="sendBtnLoading" class="hidden">Enviando...</span>
-        </button>
-        <a id="whatsBtn" href="#" class="px-5 py-3 rounded border hover:bg-slate-50 transition-colors">Escribir por WhatsApp</a>
+    <div class="relative text-center fade-in-up">
+      <div class="inline-block px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mb-6">
+        <span class="text-sm font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          Contáctanos
+        </span>
       </div>
-      <div id="formSuccess" class="hidden mt-4 p-4 rounded bg-green-50 text-green-700 border border-green-200">
-        Solicitud enviada correctamente. Te contactaremos pronto.
+
+      <h1 class="text-5xl sm:text-6xl font-extrabold leading-tight mb-6">
+        ¿Listo para <br/>
+        <span class="gradient-text">transformar tu negocio</span>?
+      </h1>
+
+      <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        Rellena el formulario y te contactaremos para coordinar una demo personalizada
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-20">
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Contact Form -->
+      <div class="fade-in-left">
+        <div class="glass-card p-8 rounded-3xl">
+          <h2 class="text-2xl font-bold text-slate-900 mb-6">Solicitar Demo</h2>
+
+          <form id="contact-form" class="space-y-5">
+            <div class="fade-in-up delay-100">
+              <label class="block text-sm font-semibold text-slate-700 mb-2">
+                Nombre completo *
+              </label>
+              <input
+                id="name"
+                type="text"
+                required
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all outline-none"
+                placeholder="Juan Pérez"
+              />
+            </div>
+
+            <div class="fade-in-up delay-200">
+              <label class="block text-sm font-semibold text-slate-700 mb-2">
+                Email *
+              </label>
+              <input
+                id="email"
+                type="email"
+                required
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all outline-none"
+                placeholder="juan@empresa.com"
+              />
+            </div>
+
+            <div class="fade-in-up delay-300">
+              <label class="block text-sm font-semibold text-slate-700 mb-2">
+                Teléfono / WhatsApp *
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                required
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all outline-none"
+                placeholder="+57 300 123 4567"
+              />
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="fade-in-up delay-400">
+                <label class="block text-sm font-semibold text-slate-700 mb-2">
+                  Tipo de negocio *
+                </label>
+                <select
+                  id="businessType"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all outline-none"
+                >
+                  <option value="">Selecciona...</option>
+                  <option>Peluquería</option>
+                  <option>SPA</option>
+                  <option>Clínica</option>
+                  <option>Banco</option>
+                  <option>Gimnasio</option>
+                  <option>Restaurante</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+
+              <div class="fade-in-up delay-500">
+                <label class="block text-sm font-semibold text-slate-700 mb-2">
+                  Número de sedes *
+                </label>
+                <select
+                  id="locations"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all outline-none"
+                >
+                  <option value="">Selecciona...</option>
+                  <option>1</option>
+                  <option>2-5</option>
+                  <option>6-10</option>
+                  <option>10+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="fade-in-up delay-600">
+              <label class="block text-sm font-semibold text-slate-700 mb-2">
+                Mensaje (opcional)
+              </label>
+              <textarea
+                id="message"
+                rows="4"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all outline-none resize-none"
+                placeholder="Cuéntanos más sobre tu negocio..."
+              ></textarea>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+              <button
+                id="sendBtn"
+                type="submit"
+                class="btn-primary flex-1"
+              >
+                <span id="sendBtnText" class="flex items-center justify-center">
+                  Enviar Solicitud
+                  <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </span>
+                <span id="sendBtnLoading" class="hidden flex items-center justify-center">
+                  <svg class="animate-spin h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Enviando...
+                </span>
+              </button>
+
+              <button
+                id="whatsBtn"
+                type="button"
+                class="btn-outline flex-1 flex items-center justify-center"
+              >
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                WhatsApp
+              </button>
+            </div>
+
+            <div id="formSuccess" class="hidden p-4 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200">
+              <div class="flex items-start">
+                <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-green-900">¡Solicitud enviada!</h3>
+                  <p class="text-green-700 text-sm mt-1">Te contactaremos pronto para coordinar tu demo personalizada.</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="formError" class="hidden p-4 rounded-xl bg-gradient-to-r from-red-50 to-orange-50 border border-red-200">
+              <div class="flex items-start">
+                <svg class="w-6 h-6 text-red-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-red-900">Error al enviar</h3>
+                  <p class="text-red-700 text-sm mt-1">Por favor intenta nuevamente o contáctanos por WhatsApp.</p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <div id="formError" class="hidden mt-4 p-4 rounded bg-red-50 text-red-700 border border-red-200">
-        Hubo un error al enviar la solicitud. Por favor intenta nuevamente o usa WhatsApp.
+
+      <!-- Contact Info -->
+      <div class="fade-in-right delay-200">
+        <div class="space-y-6">
+          <!-- Contact Methods -->
+          <div class="gradient-card p-8 rounded-3xl">
+            <h3 class="text-xl font-bold text-slate-900 mb-6">Otros medios de contacto</h3>
+
+            <div class="space-y-4">
+              <a href="mailto:info@softexlab.com" class="flex items-start p-4 rounded-xl hover:bg-white/50 transition-all group">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-900">Email</h4>
+                  <p class="text-slate-600">info@softexlab.com</p>
+                </div>
+              </a>
+
+              <a href="https://wa.me/573193636323" target="_blank" rel="noopener" class="flex items-start p-4 rounded-xl hover:bg-white/50 transition-all group">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-900">WhatsApp</h4>
+                  <p class="text-slate-600">+57 319 363 6323</p>
+                </div>
+              </a>
+
+              <div class="flex items-start p-4 rounded-xl">
+                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-900">Ubicación</h4>
+                  <p class="text-slate-600">Colombia</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Office Hours -->
+          <div class="glass-card p-8 rounded-3xl">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Horario de atención</h3>
+            <div class="space-y-2">
+              <div class="flex justify-between">
+                <span class="text-slate-600">Lunes - Viernes</span>
+                <span class="font-semibold text-slate-900">8:00 AM - 6:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-600">Sábados</span>
+                <span class="font-semibold text-slate-900">9:00 AM - 1:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-600">Domingos</span>
+                <span class="font-semibold text-slate-900">Cerrado</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <div class="gradient-card p-8 rounded-3xl">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">¿Qué incluye la demo?</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-slate-600">Recorrido completo por la plataforma</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-slate-600">Asesoría personalizada</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-slate-600">Respuesta a todas tus preguntas</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-purple-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-slate-600">Propuesta comercial a tu medida</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </form>
-
-    <script>
-      const form = document.getElementById('contact-form');
-      const whatsBtn = document.getElementById('whatsBtn');
-      const sendBtn = document.getElementById('sendBtn');
-      const sendBtnText = document.getElementById('sendBtnText');
-      const sendBtnLoading = document.getElementById('sendBtnLoading');
-      const formSuccess = document.getElementById('formSuccess');
-      const formError = document.getElementById('formError');
-
-      function buildMessage(){
-        const name = document.getElementById('name').value || '';
-        const email = document.getElementById('email').value || '';
-        const phone = document.getElementById('phone').value || '';
-        const business = document.getElementById('businessType').value || '';
-        const locations = document.getElementById('locations').value || '';
-        const message = document.getElementById('message').value || '';
-        return {
-          name,
-          email,
-          phone,
-          businessType: business,
-          locations,
-          message
-        };
-      }
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Reset states
-        formSuccess.classList.add('hidden');
-        formError.classList.add('hidden');
-        sendBtn.disabled = true;
-        sendBtnText.classList.add('hidden');
-        sendBtnLoading.classList.remove('hidden');
-        
-        try {
-          const formData = buildMessage();
-          const response = await fetch('/api/send-email', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
-
-          if (response.ok) {
-            formSuccess.classList.remove('hidden');
-            form.reset();
-          } else {
-            formError.classList.remove('hidden');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          formError.classList.remove('hidden');
-        } finally {
-          sendBtn.disabled = false;
-          sendBtnText.classList.remove('hidden');
-          sendBtnLoading.classList.add('hidden');
-        }
-      });
-
-      whatsBtn.addEventListener('click', (e)=>{
-        e.preventDefault();
-        const data = buildMessage();
-        const text = `Hola, me gustaría solicitar una demo de Ordo. Nombre: ${data.name} Email: ${data.email} Teléfono: ${data.phone} Tipo de negocio: ${data.businessType} Número de sedes: ${data.locations} Mensaje: ${data.message}`;
-        const url = `https://wa.me/573193636323?text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank');
-      });
-    </script>
+    </div>
   </section>
 
   <Footer slot="footer" />
 </BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const whatsBtn = document.getElementById('whatsBtn') as HTMLButtonElement;
+  const sendBtn = document.getElementById('sendBtn') as HTMLButtonElement;
+  const sendBtnText = document.getElementById('sendBtnText') as HTMLElement;
+  const sendBtnLoading = document.getElementById('sendBtnLoading') as HTMLElement;
+  const formSuccess = document.getElementById('formSuccess') as HTMLElement;
+  const formError = document.getElementById('formError') as HTMLElement;
+
+  function buildMessage() {
+    const name = (document.getElementById('name') as HTMLInputElement).value || '';
+    const email = (document.getElementById('email') as HTMLInputElement).value || '';
+    const phone = (document.getElementById('phone') as HTMLInputElement).value || '';
+    const business = (document.getElementById('businessType') as HTMLSelectElement).value || '';
+    const locations = (document.getElementById('locations') as HTMLSelectElement).value || '';
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value || '';
+    return {
+      name,
+      email,
+      phone,
+      businessType: business,
+      locations,
+      message
+    };
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Reset states
+    formSuccess.classList.add('hidden');
+    formError.classList.add('hidden');
+    sendBtn.disabled = true;
+    sendBtnText.classList.add('hidden');
+    sendBtnLoading.classList.remove('hidden');
+
+    try {
+      const formData = buildMessage();
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        formSuccess.classList.remove('hidden');
+        form.reset();
+
+        // Scroll to success message
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        formError.classList.remove('hidden');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      formError.classList.remove('hidden');
+    } finally {
+      sendBtn.disabled = false;
+      sendBtnText.classList.remove('hidden');
+      sendBtnLoading.classList.add('hidden');
+    }
+  });
+
+  whatsBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const data = buildMessage();
+    const text = `Hola, me gustaría solicitar una demo de Ordo.\n\nNombre: ${data.name}\nEmail: ${data.email}\nTeléfono: ${data.phone}\nTipo de negocio: ${data.businessType}\nNúmero de sedes: ${data.locations}\nMensaje: ${data.message}`;
+    const url = `https://wa.me/573193636323?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  });
+</script>
+
+<style>
+  /* Add spin animation for loading spinner */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+</style>
